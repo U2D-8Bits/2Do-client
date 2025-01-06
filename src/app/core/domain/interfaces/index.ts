@@ -24,3 +24,5 @@ export * from './subtask/subtask.interface';
 
 //? Auth Interfaces
 export * from './auth/login.interface';
+export * from './auth/check-token.response';
+export * from './auth/login-response.interface';
