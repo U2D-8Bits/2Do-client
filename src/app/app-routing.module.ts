@@ -6,10 +6,10 @@ import { RouterModule, Routes } from '@angular/router';
 //*---------------------------------------------------------
 const routes: Routes = [
   {
-    path: '', loadChildren: () => import('./modules/routes/auth/auth.module').then(m => m.AuthModule)
+    path: '', loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule)
   },
   {
-    path: 'dashboard', loadChildren: () => import('./modules/routes/dashboard/dashboard.module').then(m => m.DashboardModule)
+    path: 'dashboard', loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule)
   },
   {
     path:'',
