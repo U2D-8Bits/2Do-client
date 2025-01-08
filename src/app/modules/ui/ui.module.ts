@@ -6,18 +6,21 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { InputComponent } from "../../presentation/ui";
+import { ButtonComponent } from "../../presentation/ui/button/button.component";
 
 //? NgModules
 @NgModule({
 
   declarations: [
-    InputComponent
+    InputComponent,
+    ButtonComponent
   ],
   imports: [
     CommonModule,
   ],
   exports: [
-    InputComponent
+    InputComponent,
+    ButtonComponent
   ]
 
 })
