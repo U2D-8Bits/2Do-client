@@ -1,1 +1,4 @@
-<p>button works!</p>
+<button [type]="type" (click)="onClickEvent()"
+  class="bg-bagel hover:bg-yellow-600 text-white font-semibold rounded-md py-2 px-4 w-full disabled:bg-gray-500">
+  {{ label }}
+</button>
