@@ -12,11 +12,9 @@ export class ButtonComponent {
   //* Button Properties
   //*------------------------------------------
 
-  //? Button Type
   @Input()type: string = 'button';
-
-  //? Button Disabled
   @Input()disabled: boolean = false;
+  @Input() loading: boolean = false;
 
   //? Button Click Event
   @Output() onClick = new EventEmitter<any>();
@@ -27,6 +25,8 @@ export class ButtonComponent {
   //*------------------------------------------
   //? On Button Click Event
   onClickEvent(){
-    this.onClick.emit();
+    if( !this.loading ){
+      this.onClick.emit();
+    }
   }
 }

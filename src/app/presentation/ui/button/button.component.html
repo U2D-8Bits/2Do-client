@@ -1,4 +1,12 @@
-<button [type]="type" (click)="onClickEvent()"
-  class="bg-bagel hover:bg-yellow-600 text-white font-semibold rounded-md py-2 px-4 w-full disabled:bg-gray-500">
-  <ng-content></ng-content>
+<button [type]="type"
+        (click)="onClickEvent()"
+        [disabled]="disabled || loading"
+        class="bg-bagel hover:bg-yellow-600 text-white font-semibold rounded-md py-2 px-4 w-full disabled:bg-gray-500 relative flex justify-center items-center">
+  <!-- Spinner -->
+  <svg *ngIf="loading" class="animate-spin h-5 w-5 text-white absolute" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+  </svg>
+  <!-- Botón contenido -->
+  <span *ngIf="!loading"><ng-content></ng-content></span>
 </button>
