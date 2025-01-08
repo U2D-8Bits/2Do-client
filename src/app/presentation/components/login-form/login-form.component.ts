@@ -8,4 +8,9 @@ import { UiModule } from "../../../modules/ui/ui.module";
 })
 export class LoginFormComponent {
 
+
+  onClick(){
+    console.log('Login button clicked');
+  }
+
 }
