@@ -2,7 +2,7 @@ import { Component, Input, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-button',
+  selector: 'app-ui-button',
   templateUrl: './button.component.html',
   styleUrl: './button.component.css'
 })
