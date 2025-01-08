@@ -12,9 +12,6 @@ export class ButtonComponent {
   //* Button Properties
   //*------------------------------------------
 
-  //? Button Text
-  @Input()label: string = '';
-
   //? Button Type
   @Input()type: string = 'button';
 
