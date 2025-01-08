@@ -1,1 +1,29 @@
-<p>login-form works!</p>
+<form method="#" action="#" class="mt-10">
+  <!-- Email input -->
+  <div>
+    <app-ui-input type="email" label="Correo Electrónico" placeholder="Ingresa tu correo electrónico"
+      [required]="true" />
+  </div>
+
+  <!-- Password Input -->
+  <div>
+    <app-ui-input type="password" label="Contraseña" placeholder="Ingresa tu contraseña" [required]="true" />
+  </div>
+
+  <!-- Remember Me Checkboc -->
+  <div class="mb-4 flex items-center">
+    <input type="checkbox" id="remember" name="remember" class="text-bagel">
+    <label for="remember" class="text-gray-600 ml-2">Remember Me</label>
+  </div>
+
+  <!-- Forgot Password -->
+  <div class="mb-6 text-bagel">
+    <a href="#" class="hover:underline">Forgot Password?</a>
+  </div>
+
+  <!-- Login Button -->
+  <button type="submit" class="bg-bagel hover:bg-yellow-600 text-white font-semibold rounded-md py-2 px-4 w-full disabled:bg-gray-500">
+    Iniciar Sesión
+  </button>
+
+</form>
