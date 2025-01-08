@@ -6,7 +6,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        palePink: '#F5C2E7'
+        palePink: '#F5C2E7',
+        bagel: '#FAB957'
       }
     },
   },
