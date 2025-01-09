@@ -4,7 +4,7 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ErrorPageComponent } from './presentation/pages/error-page/error-page.component';
+import { ErrorPageComponent } from './presentation/pages';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import { ErrorPageComponent } from './presentation/pages/error-page/error-page.c
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     provideClientHydration()
