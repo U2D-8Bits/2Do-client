@@ -1,1 +1,29 @@
-<p>login-form works!</p>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="mt-10">
+  <!-- Email input -->
+  <div>
+    <app-ui-input type="email" label="Correo Electrónico" placeholder="Ingresa tu correo electrónico"
+      [required]="true" formControlName="str_user_email" />
+  </div>
+
+  <!-- Password Input -->
+  <div>
+    <app-ui-input type="password" label="Contraseña" placeholder="Ingresa tu contraseña" [required]="true" formControlName="str_user_password" />
+  </div>
+
+  <!-- Remember Me Checkboc -->
+  <div class="mb-4 flex items-center">
+    <input type="checkbox" id="remember" name="remember" class="text-bagel" formControlName="rememberMe">
+    <label for="remember" class="text-gray-600 ml-2">Recordarme</label>
+  </div>
+
+  <!-- Forgot Password -->
+  <div class="mb-6 text-bagel">
+    <a href="#" class="hover:underline">Olvidaste tu contraseña?</a>
+  </div>
+
+  <!-- Login UI Buttom -->
+  <app-ui-button type="submit" [disabled]="loginForm.invalid" [loading]="loading">
+    Iniciar Sesión
+  </app-ui-button>
+
+</form>
