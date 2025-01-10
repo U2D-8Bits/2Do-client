@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastService } from '../../../application/services/toast.service';
 import { Router } from '@angular/router';
+import { UserService } from '../../../application/services/index';
+import { CreateUserInterface } from '../../../core/domain/interfaces';
 
 @Component({
   selector: 'app-sign-up-form',
@@ -15,7 +17,8 @@ export class SigUpFormComponent {
   constructor(
     private fb: FormBuilder,
     private toastService: ToastService,
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) {
     this.signUpForm = this.fb.group({
       str_user_username: ['', [Validators.required, Validators.minLength(3)]],
@@ -56,16 +59,31 @@ export class SigUpFormComponent {
         return;
       }
 
+      //? Set loading to true
       this.loading = true;
 
-      setTimeout(() => {
-        this.loading = false;
-        this.toastService.showToast('success', 'Usuario creado exitosamente');
+      const userData: CreateUserInterface = {
+        str_user_username,
+        str_user_email,
+        str_user_password,
+      }
 
-        //? Redirect to login
-        this.router.navigate(['/login']);
+      //? Call the service to register the user
+      this.userService.registerUser(userData)
+      .subscribe({
+        next: (response) => {
+          setTimeout(() => {
+            this.toastService.showToast('success', 'Usuario creado correctamente');
+            console.log(response);
+            this.router.navigate(['/login']);
+          }, 2000);
+        },
+        error: (error) => {
+          this.toastService.showToast('error', 'Error al crear el usuario');
+          console.log(error);
+        },
+      })
 
-      }, 2000);
     }
   }
 }
