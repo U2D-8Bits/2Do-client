@@ -3,7 +3,7 @@
     *ngFor="let toast of toasts"
     [type]="toast.type"
     [message]="toast.message"
-    [duration]="toast.duration"
+    [duration]="toast.duration || 5000"
   ></app-toast>
 </div>
 
