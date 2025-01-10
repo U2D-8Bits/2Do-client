@@ -25,6 +25,7 @@ export class InputComponent implements ControlValueAccessor {
   @Input() disabled: boolean = false;
 
   value:string = '';
+  isPasswordVisible: boolean = false;
 
   //*---------------------------------------------------------
   //* ControlValueAccessor Implementation
@@ -56,6 +57,10 @@ export class InputComponent implements ControlValueAccessor {
     this.value = inputValue;
     this.onChange(inputValue);
     this.onTouched();
+  }
+
+  togglePasswordVisibility(): void {
+    this.isPasswordVisible = !this.isPasswordVisible;
   }
 
 }
