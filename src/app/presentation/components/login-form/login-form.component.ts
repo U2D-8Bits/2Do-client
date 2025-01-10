@@ -75,7 +75,7 @@ export class LoginFormComponent {
         }
 
         this.loading = false;
-      }, 3000);
+      }, 2000);
     }else{
       this.toastService.showToast('error', 'Por favor, completa los campos correctamente.');
     }
