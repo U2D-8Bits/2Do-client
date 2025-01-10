@@ -26,3 +26,6 @@ export * from './subtask/subtask.interface';
 export * from './auth/login.interface';
 export * from './auth/check-token.response';
 export * from './auth/login-response.interface';
+
+//? Toast Interface
+export * from './toast/toast.interface';
