@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastService } from '../../../application/services/toast.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up-form',
@@ -11,7 +12,11 @@ export class SigUpFormComponent {
   //*-----------------------------------------------------
   //* Constructor
   //*-----------------------------------------------------
-  constructor(private fb: FormBuilder, private toastService: ToastService) {
+  constructor(
+    private fb: FormBuilder,
+    private toastService: ToastService,
+    private router: Router
+  ) {
     this.signUpForm = this.fb.group({
       str_user_username: ['', [Validators.required, Validators.minLength(3)]],
       str_user_email: ['', [Validators.required, Validators.email]],
@@ -56,6 +61,10 @@ export class SigUpFormComponent {
       setTimeout(() => {
         this.loading = false;
         this.toastService.showToast('success', 'Usuario creado exitosamente');
+
+        //? Redirect to login
+        this.router.navigate(['/login']);
+
       }, 2000);
     }
   }
