@@ -5,22 +5,27 @@
 //? Imports
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { InputComponent } from "../../presentation/ui";
-import { ButtonComponent } from "../../presentation/ui/button/button.component";
+import { InputComponent, ButtonComponent, ToastComponent, ToastContainerComponent } from "../../presentation/ui";
+import {  } from "../../presentation/ui/button/button.component";
 
 //? NgModules
 @NgModule({
 
   declarations: [
     InputComponent,
-    ButtonComponent
+    ButtonComponent,
+    ToastComponent,
+    ToastContainerComponent
+
   ],
   imports: [
     CommonModule,
   ],
   exports: [
     InputComponent,
-    ButtonComponent
+    ButtonComponent,
+    ToastComponent,
+    ToastContainerComponent
   ]
 
 })
