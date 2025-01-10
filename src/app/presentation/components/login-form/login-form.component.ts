@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UiModule } from '../../../modules/ui/ui.module';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StorageService } from '../../../application/services/storage.service';
+import { ToastService } from '../../../application/services/toast.service';
 
 @Component({
   selector: 'app-login-form',
@@ -15,7 +16,8 @@ export class LoginFormComponent {
   constructor
   (
     private fb: FormBuilder,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private toastService: ToastService
   ) {
     this.loginForm = this.fb.group({
       str_user_email: ['', [Validators.required, Validators.email]],
@@ -33,6 +35,10 @@ export class LoginFormComponent {
   loginForm: FormGroup;
 
   loading: boolean = false;
+
+  //*-----------------------------------------
+  //* Methods
+  //*-----------------------------------------
 
   //? Get Credentials
   loadRememberedCredentials(): void {
@@ -54,19 +60,24 @@ export class LoginFormComponent {
       this.loading = true;
 
       setTimeout(() => {
-        console.log('Usuario autenticado:', {
-          str_user_email,
-          str_user_password,
-        });
+        // Simulación de autenticación exitosa
+        if (str_user_email === 'user@example.com' && str_user_password === '123456') {
+          this.toastService.showToast('success', 'Usuario autenticado con éxito');
 
-        if (rememberMe) {
-          this.storageService.setItem('rememberedEmail', str_user_email);
+          if (rememberMe) {
+            this.storageService.setItem('rememberedEmail', str_user_email);
+          } else {
+            this.storageService.removeItem('rememberedEmail');
+          }
         } else {
-          this.storageService.removeItem('rememberedEmail');
+          // Simulación de error de autenticación
+          this.toastService.showToast('error', 'Credenciales inválidas. Inténtalo de nuevo.');
         }
 
         this.loading = false;
-      }, 2000);
+      }, 3000);
+    }else{
+      this.toastService.showToast('error', 'Por favor, completa los campos correctamente.');
     }
   }
 }
