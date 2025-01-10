@@ -37,7 +37,7 @@ export class UserService {
   //*-----------------------------------------
 
   registerUser(createUser: CreateUserInterface): Observable<UserInterface> {
-    const url = `${this.baseUrl}/api/users`;
+    const url = `${this.baseUrl}/users`;
 
     return this.httpClient.post<UserInterface>(url, createUser).pipe(
       map((response: UserInterface) => response),
