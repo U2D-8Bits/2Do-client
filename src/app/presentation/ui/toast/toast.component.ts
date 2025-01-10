@@ -18,7 +18,7 @@ export class ToastComponent implements OnInit {
 
   @Input() type: 'success' | 'error' | 'warning' = 'success';
   @Input() message: string = '';
-  @Input() duration: number = 3000;
+  @Input() duration: number = 2000;
 
   isVisible: boolean = true;
   private timeOut: any;

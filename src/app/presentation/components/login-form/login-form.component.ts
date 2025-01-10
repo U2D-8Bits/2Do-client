@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { UiModule } from '../../../modules/ui/ui.module';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { StorageService } from '../../../application/services/storage.service';
-import { ToastService } from '../../../application/services/toast.service';
+import { AuthService, StorageService, ToastService} from '../../../application/services/index';
+import { LoginInterface } from '../../../core/domain/interfaces';
 
 @Component({
   selector: 'app-login-form',
@@ -17,7 +17,8 @@ export class LoginFormComponent {
   (
     private fb: FormBuilder,
     private storageService: StorageService,
-    private toastService: ToastService
+    private toastService: ToastService,
+    private authService: AuthService
   ) {
     this.loginForm = this.fb.group({
       str_user_email: ['', [Validators.required, Validators.email]],
@@ -59,23 +60,28 @@ export class LoginFormComponent {
 
       this.loading = true;
 
-      setTimeout(() => {
-        // Simulación de autenticación exitosa
-        if (str_user_email === 'user@example.com' && str_user_password === '123456') {
-          this.toastService.showToast('success', 'Usuario autenticado con éxito');
+      const loginData: LoginInterface = { str_user_email, str_user_password };
 
-          if (rememberMe) {
-            this.storageService.setItem('rememberedEmail', str_user_email);
-          } else {
-            this.storageService.removeItem('rememberedEmail');
-          }
-        } else {
-          // Simulación de error de autenticación
+      this.authService.login(loginData)
+      .subscribe({
+        next: (response) => {
+          setTimeout(() => {
+            this.toastService.showToast('success', 'Usuario autenticado con éxito');
+
+            if (rememberMe) {
+              this.storageService.setItem('rememberedEmail', str_user_email);
+            } else {
+              this.storageService.removeItem('rememberedEmail');
+            }
+            console.log(response);
+            this.loading = false;
+          }, 2000);
+        },
+        error: (error) => {
           this.toastService.showToast('error', 'Credenciales inválidas. Inténtalo de nuevo.');
+          this.loading = false
         }
-
-        this.loading = false;
-      }, 3000);
+      })
     }else{
       this.toastService.showToast('error', 'Por favor, completa los campos correctamente.');
     }
