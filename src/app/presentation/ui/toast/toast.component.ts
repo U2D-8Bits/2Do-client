@@ -38,9 +38,11 @@ export class ToastComponent implements OnInit {
   //* ngOnInit
   //*----------------------------------------------------
   ngOnInit(): void {
-    if( this.duration > 0 ){
-      this.timeOut = setTimeout(() => this.closeToast(), this.duration);
-    }
+    this.isVisible = true;
+
+    setTimeout(() => {
+      this.isVisible = false;
+    }, this.duration - 300); // Retrae antes de eliminar
   }
 
 }
