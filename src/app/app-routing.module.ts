@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ErrorPageComponent } from './presentation/pages';
+import { authGuard, noAuthGuard } from './application/guards';
 
 
 //*---------------------------------------------------------
@@ -8,10 +9,10 @@ import { ErrorPageComponent } from './presentation/pages';
 //*---------------------------------------------------------
 const routes: Routes = [
   {
-    path: '', loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule)
+    path: '', loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule), canActivate: [noAuthGuard]
   },
   {
-    path: 'dashboard', loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule)
+    path: 'dashboard', loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule), canActivate: [authGuard]
   },
   {
     path:'',
