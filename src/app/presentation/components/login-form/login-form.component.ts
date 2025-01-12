@@ -3,6 +3,7 @@ import { UiModule } from '../../../modules/ui/ui.module';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService, StorageService, ToastService} from '../../../application/services/index';
 import { LoginInterface } from '../../../core/domain/interfaces';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -18,7 +19,8 @@ export class LoginFormComponent {
     private fb: FormBuilder,
     private storageService: StorageService,
     private toastService: ToastService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {
     this.loginForm = this.fb.group({
       str_user_email: ['', [Validators.required, Validators.email]],
@@ -73,7 +75,7 @@ export class LoginFormComponent {
             } else {
               this.storageService.removeItem('rememberedEmail');
             }
-            console.log(response);
+            this.router.navigate(['/dashboard']);
             this.loading = false;
           }, 2000);
         },
