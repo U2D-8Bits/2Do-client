@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardLayoutComponent } from '../../presentation/layouts/dashboard-layout/dashboard-layout.component';
 import { DashboardRoutingModule } from '../routes/dashboard-routing.module';
-import { AsideComponent } from '../../presentation/components';
+import { AsideComponent, NavbarComponent } from '../../presentation/components';
 
 
 
@@ -12,7 +12,8 @@ import { AsideComponent } from '../../presentation/components';
     DashboardLayoutComponent,
 
     //* Components
-    AsideComponent
+    AsideComponent,
+    NavbarComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +22,8 @@ import { AsideComponent } from '../../presentation/components';
   exports: [
 
     //* Components
-    AsideComponent
+    AsideComponent,
+    NavbarComponent
   ]
 })
 export class DashboardModule { }
