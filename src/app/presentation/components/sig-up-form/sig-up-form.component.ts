@@ -24,7 +24,7 @@ export class SigUpFormComponent {
       str_user_username: ['', [Validators.required, Validators.minLength(3)]],
       str_user_email: ['', [Validators.required, Validators.email]],
       str_user_password: ['', [Validators.required, Validators.minLength(6)]],
-      str_user_confirm_password: [
+      str_user_password_confirm: [
         '',
         [Validators.required, Validators.minLength(6)],
       ],
@@ -50,11 +50,11 @@ export class SigUpFormComponent {
         str_user_username,
         str_user_email,
         str_user_password,
-        str_user_confirm_password,
+        str_user_password_confirm,
       } = this.signUpForm.value;
 
       //? Check if passwords match
-      if (str_user_password !== str_user_confirm_password) {
+      if (str_user_password !== str_user_password_confirm) {
         this.toastService.showToast('error', 'Las Contraseñas no coinciden');
         return;
       }
@@ -66,6 +66,7 @@ export class SigUpFormComponent {
         str_user_username,
         str_user_email,
         str_user_password,
+        str_user_password_confirm,
       }
 
       //? Call the service to register the user
