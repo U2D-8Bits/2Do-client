@@ -1,7 +1,7 @@
 //*************************************************************************
 //* Imports
 //*************************************************************************
-import { Component, HostListener, ViewEncapsulation } from '@angular/core';
+import { Component, HostListener, ElementRef } from '@angular/core';
 
 //*************************************************************************
 //* Component
@@ -16,6 +16,12 @@ import { Component, HostListener, ViewEncapsulation } from '@angular/core';
 //* Class
 //*************************************************************************
 export class NavbarComponent {
+
+  //*************************************************************************
+  //* Constructor
+  //*************************************************************************
+  constructor(private elementRef: ElementRef) {}
+
 
   //*************************************************************************
   //* Properties
@@ -35,4 +41,18 @@ export class NavbarComponent {
   //*************************************************************************
   //* Listener
   //*************************************************************************
+
+  //? Close dropdown when clicking outside
+  @HostListener('document:click', ['$event'])
+  closeDropdown(event: MouseEvent): void {
+    const target = event.target as HTMLElement;
+
+    // Check if the clicked element is inside the dropdown or the button
+    if (
+      !this.elementRef.nativeElement.contains(target) &&
+      this.isHidden
+    ) {
+      this.isHidden = false;
+    }
+  }
 }
