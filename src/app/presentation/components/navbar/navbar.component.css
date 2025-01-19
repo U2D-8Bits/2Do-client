@@ -1,0 +1,13 @@
+/* Dropdown Transition (si no quieres usar las clases predefinidas de Tailwind para animación) */
+.dropdown {
+  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+}
+.dropdown-hidden {
+  transform: scale(0.95);
+  opacity: 0;
+  pointer-events: none;
+}
+.dropdown-visible {
+  transform: scale(1);
+  opacity: 1;
+}

@@ -8,7 +8,10 @@ module.exports = {
       colors: {
         palePink: '#F5C2E7',
         bagel: '#FAB957'
-      }
+      },
+      transitionProperty: {
+        'opacity': 'opacity',
+      },
     },
   },
   plugins: [],
