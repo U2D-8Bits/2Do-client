@@ -2,6 +2,7 @@
 //* Imports
 //*************************************************************************
 import { Component, HostListener, ElementRef } from '@angular/core';
+import { SidebarService } from '../../../application/services';
 
 //*************************************************************************
 //* Component
@@ -20,7 +21,10 @@ export class NavbarComponent {
   //*************************************************************************
   //* Constructor
   //*************************************************************************
-  constructor(private elementRef: ElementRef) {}
+  constructor(
+    private elementRef: ElementRef,
+    private sidebarService: SidebarService,
+  ) {}
 
 
   //*************************************************************************
@@ -36,6 +40,12 @@ export class NavbarComponent {
   //? Methodo para mostrar el dropdown
   toggleDropDown() {
     this.isHidden = !this.isHidden;
+  }
+
+
+  //? Method to show and hide Sidebar
+  toggleSidebar():void{
+    this.sidebarService.toggleSidebar();
   }
 
   //*************************************************************************
