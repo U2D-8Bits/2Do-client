@@ -9,29 +9,22 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-aside',
   templateUrl: './aside.component.html',
-  styleUrl: './aside.component.css'
+  styleUrl: './aside.component.css',
 })
 
 //*-----------------------------------------------------------------------------
 //* Class
 //*-----------------------------------------------------------------------------
 export class AsideComponent {
-
-
   //*---------------------------------------------------------------------------
   //* Properties
   //*---------------------------------------------------------------------------
-  isExpanded = true;
-
-
+  isPagesMenuOpen: boolean = false;
 
   //*---------------------------------------------------------------------------
   //* Methods
   //*---------------------------------------------------------------------------
-
-  //? Toggle the aside
-  toggleSidebar() {
-    this.isExpanded = !this.isExpanded;
+  togglePagesMenu(): void {
+    this.isPagesMenuOpen = !this.isPagesMenuOpen;
   }
-
 }
