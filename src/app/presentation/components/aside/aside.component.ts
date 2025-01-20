@@ -1,7 +1,8 @@
 //*-----------------------------------------------------------------------------
 //* Imports
 //*-----------------------------------------------------------------------------
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SidebarService } from '../../../application/services';
 
 //*-----------------------------------------------------------------------------
 //* @Component
@@ -9,29 +10,46 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-aside',
   templateUrl: './aside.component.html',
-  styleUrl: './aside.component.css'
+  styleUrl: './aside.component.css',
 })
 
 //*-----------------------------------------------------------------------------
 //* Class
 //*-----------------------------------------------------------------------------
-export class AsideComponent {
+export class AsideComponent implements OnInit{
+
+  //*---------------------------------------------------------------------------
+  //* Constructor
+  //*---------------------------------------------------------------------------
+  constructor(
+    private sidebarService: SidebarService
+  ){}
+
+  //*---------------------------------------------------------------------------
+  //* Lifecycle Hooks
+  //*---------------------------------------------------------------------------
+
+  ngOnInit(): void {
+    this.sidebarService.sidebarOpen$.subscribe((open: boolean) => {
+      this.isSidebarOpen = open;
+    });
+  }
 
 
   //*---------------------------------------------------------------------------
   //* Properties
   //*---------------------------------------------------------------------------
-  isExpanded = true;
+  menuStates: Record<string, boolean> = {
+    pages: false,
+    controllers: false,
+  }
 
-
+  isSidebarOpen: boolean = false;
 
   //*---------------------------------------------------------------------------
   //* Methods
   //*---------------------------------------------------------------------------
-
-  //? Toggle the aside
-  toggleSidebar() {
-    this.isExpanded = !this.isExpanded;
+  toggleMenu(menu: string): void {
+    this.menuStates[menu] = !this.menuStates[menu];
   }
-
 }
