@@ -19,12 +19,15 @@ export class AsideComponent {
   //*---------------------------------------------------------------------------
   //* Properties
   //*---------------------------------------------------------------------------
-  isPagesMenuOpen: boolean = false;
+  menuStates: Record<string, boolean> = {
+    pages: false,
+    controllers: false,
+  }
 
   //*---------------------------------------------------------------------------
   //* Methods
   //*---------------------------------------------------------------------------
-  togglePagesMenu(): void {
-    this.isPagesMenuOpen = !this.isPagesMenuOpen;
+  toggleMenu(menu: string): void {
+    this.menuStates[menu] = !this.menuStates[menu];
   }
 }
