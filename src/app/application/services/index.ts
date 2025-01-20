@@ -13,3 +13,7 @@ export * from './user/user.service';
 
 //? Auth Service
 export * from './auth/auth.service';
+
+//? Shared services
+
+export * from './shared/sidebar.service';

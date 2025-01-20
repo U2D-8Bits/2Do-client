@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardLayoutComponent } from '../../presentation/layouts/dashboard-layout/dashboard-layout.component';
 import { DashboardRoutingModule } from '../routes/dashboard-routing.module';
 import { AsideComponent, NavbarComponent } from '../../presentation/components';
+import { DashboardComponent } from '../../presentation/pages';
 
 
 
@@ -13,7 +14,10 @@ import { AsideComponent, NavbarComponent } from '../../presentation/components';
 
     //* Components
     AsideComponent,
-    NavbarComponent
+    NavbarComponent,
+
+    //* Pages
+    DashboardComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +27,10 @@ import { AsideComponent, NavbarComponent } from '../../presentation/components';
 
     //* Components
     AsideComponent,
-    NavbarComponent
+    NavbarComponent,
+
+    //* Pages
+    DashboardComponent
   ]
 })
 export class DashboardModule { }
