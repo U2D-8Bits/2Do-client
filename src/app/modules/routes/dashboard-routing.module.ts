@@ -1,13 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardLayoutComponent } from '../../presentation/layouts/dashboard-layout/dashboard-layout.component';
+import { DashboardComponent } from '../../presentation/pages';
 
 
 
 const routes: Routes = [
   { path: '',
     component: DashboardLayoutComponent,
-    children: []
+    children: [
+      {
+        path: '',
+        title: 'Inicio',
+        component: DashboardComponent,
+      },
+      {
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full'
+      }
+    ]
   }
 ];
 
