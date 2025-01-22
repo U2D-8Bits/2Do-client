@@ -1,8 +1,9 @@
 //*************************************************************************
 //* Imports
 //*************************************************************************
-import { Component, HostListener, ElementRef } from '@angular/core';
-import { SidebarService } from '../../../application/services';
+import { Component, HostListener, ElementRef, OnInit } from '@angular/core';
+import { SidebarService, StorageService, UserService } from '../../../application/services';
+import { UserInterface } from '../../../core/domain/interfaces';
 
 //*************************************************************************
 //* Component
@@ -16,7 +17,7 @@ import { SidebarService } from '../../../application/services';
 //*************************************************************************
 //* Class
 //*************************************************************************
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
 
   //*************************************************************************
   //* Constructor
@@ -24,14 +25,38 @@ export class NavbarComponent {
   constructor(
     private elementRef: ElementRef,
     private sidebarService: SidebarService,
+    private userService: UserService,
+    private storageService: StorageService,
   ) {}
 
+
+  //*************************************************************************
+  //* Lifecycle
+  //*************************************************************************
+
+  ngOnInit(): void {
+
+    const userId: number = Number(this.storageService.getSessionItem('ID'));
+
+    if(userId){
+      this.userService.getUserDataByID(userId)
+      .subscribe({
+        next: (userData: UserInterface) => {
+          this.userData = userData;
+        },
+        error: (error: any) => {
+          console.error(error);
+        }
+      })
+    }
+  }
 
   //*************************************************************************
   //* Properties
   //*************************************************************************
 
   isHidden: boolean = false;
+  userData: UserInterface | null = null;
 
   //*************************************************************************
   //* Mehtods
