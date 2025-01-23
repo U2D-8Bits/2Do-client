@@ -35,7 +35,7 @@
           <button (click)="toggleDropDown()"
             class="flex items-center text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300">
             <span class="sr-only">Open user menu</span>
-            <img class="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+            <img class="w-8 h-8 rounded-full" [src]="userData?.str_user_profile_picture" [alt]="userData?.str_user_username"
               alt="User photo" />
           </button>
 
@@ -44,8 +44,8 @@
             [ngClass]="!isHidden ? 'transition ease-out duration-100 opacity-0 scale-95' : 'transition ease-in duration-75 opacity-100 scale-100'"
             class="absolute right-0 top-14 w-48 bg-white rounded-lg shadow-md z-10">
             <div class="px-4 py-3">
-              <p class="text-sm font-semibold text-gray-700">Neil Sims</p>
-              <p class="text-sm text-gray-500 truncate">user-emailexample.com</p>
+              <p class="text-sm font-semibold text-gray-700">{{ userData?.str_user_username }}</p>
+              <p class="text-sm text-gray-500 truncate">{{ userData?.str_user_email }}</p>
             </div>
             <ul class="py-1">
               <li>
