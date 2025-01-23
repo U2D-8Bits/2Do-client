@@ -43,6 +43,7 @@ export class NavbarComponent implements OnInit {
       .subscribe({
         next: (userData: UserInterface) => {
           this.userData = userData;
+          console.log(userData.str_user_profile_picture)
         },
         error: (error: any) => {
           console.error(error);
