@@ -44,4 +44,17 @@ export class UserService {
       catchError((error: any) => throwError(error))
     );
   }
+
+  //*-----------------------------------------
+  //* Get User Data by ID
+  //*-----------------------------------------
+  getUserDataByID(id: number): Observable<UserInterface>{
+    const url = `${this.baseUrl}/users/${id}`;
+
+    return this.httpClient.get<UserInterface>(url).pipe(
+      map((response: UserInterface) => response),
+      catchError((error: any) => throwError(error))
+    )
+  }
+
 }

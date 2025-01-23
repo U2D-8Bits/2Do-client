@@ -47,6 +47,7 @@ export class AuthService {
   //? Method to save auth info
   private saveData(user: UserInterface, token: string): boolean {
     this.storageService.setItem('token', token);
+    this.storageService.setSessionItem('ID', user.int_user_id.toString());
     return true;
   }
 
