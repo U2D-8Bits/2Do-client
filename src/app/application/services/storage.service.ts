@@ -1,34 +1,51 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
-export class StorageService{
-
+export class StorageService {
   isBrowser: boolean;
 
-  constructor(){
+  constructor() {
     this.isBrowser = typeof window !== 'undefined';
   }
 
   //*-----------------------------------------
-  //* Get Item
+  //* Get Item by Local Storage
   //*-----------------------------------------
 
   getItem(key: string): string | null {
-    if(this.isBrowser){
+    if (this.isBrowser) {
       return localStorage.getItem(key);
     }
     return null;
   }
 
   //*-----------------------------------------
-  //* Set Item
+  //* Get Item by Session Storage
   //*-----------------------------------------
-  setItem(key: string, value: string): void{
-    if(this.isBrowser){
+  getSessionItem(key: string): string | null {
+    if (this.isBrowser) {
+      return sessionStorage.getItem(key);
+    }
+    return null;
+  }
+
+  //*-----------------------------------------
+  //* Set Item in Local Storage
+  //*-----------------------------------------
+  setItem(key: string, value: string): void {
+    if (this.isBrowser) {
       localStorage.setItem(key, value);
+    }
+  }
+
+  //*-----------------------------------------
+  //* Set item in Session Storage
+  //*-----------------------------------------
+  setSessionItem(key: string, value: string): void {
+    if (this.isBrowser) {
+      sessionStorage.setItem(key, value);
     }
   }
 
@@ -36,9 +53,8 @@ export class StorageService{
   //* Remove Item
   //*-----------------------------------------
   removeItem(key: string): void {
-    if(this.isBrowser){
+    if (this.isBrowser) {
       localStorage.removeItem(key);
     }
   }
-
 }
