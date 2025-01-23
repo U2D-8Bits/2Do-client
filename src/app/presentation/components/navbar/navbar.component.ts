@@ -2,7 +2,7 @@
 //* Imports
 //*************************************************************************
 import { Component, HostListener, ElementRef, OnInit } from '@angular/core';
-import { SidebarService, StorageService, UserService } from '../../../application/services';
+import { AuthService, SidebarService, StorageService, UserService } from '../../../application/services';
 import { UserInterface } from '../../../core/domain/interfaces';
 
 //*************************************************************************
@@ -27,6 +27,7 @@ export class NavbarComponent implements OnInit {
     private sidebarService: SidebarService,
     private userService: UserService,
     private storageService: StorageService,
+    private authService: AuthService,
   ) {}
 
 
@@ -72,6 +73,11 @@ export class NavbarComponent implements OnInit {
   //? Method to show and hide Sidebar
   toggleSidebar():void{
     this.sidebarService.toggleSidebar();
+  }
+
+  //? Method to logout
+  logout(): void {
+    this.authService.logout();
   }
 
   //*************************************************************************
