@@ -57,4 +57,13 @@ export class StorageService {
       localStorage.removeItem(key);
     }
   }
+
+  //*-----------------------------------------
+  //* Remove Session Item
+  //*-----------------------------------------
+  removeSessionItem(key: string): void {
+    if (this.isBrowser) {
+      sessionStorage.removeItem(key);
+    }
+  }
 }

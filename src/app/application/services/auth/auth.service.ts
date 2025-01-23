@@ -68,6 +68,13 @@ export class AuthService {
       );
   }
 
+  //? Logout Method
+  logout(): void {
+    this.storageService.removeItem('token');
+    this.storageService.removeSessionItem('ID');
+    this.authStatus$.next(AuthStatusEnum.notAuthenticated);
+  }
+
   //? Verify Token Method
   verifyToken(token: string): boolean {
     try {

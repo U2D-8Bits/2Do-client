@@ -2,7 +2,7 @@
 //* Imports
 //*-----------------------------------------------------------------------------
 import { Component, OnInit } from '@angular/core';
-import { SidebarService } from '../../../application/services';
+import { AuthService, SidebarService } from '../../../application/services';
 
 //*-----------------------------------------------------------------------------
 //* @Component
@@ -22,7 +22,8 @@ export class AsideComponent implements OnInit{
   //* Constructor
   //*---------------------------------------------------------------------------
   constructor(
-    private sidebarService: SidebarService
+    private sidebarService: SidebarService,
+    private authService: AuthService,
   ){}
 
   //*---------------------------------------------------------------------------
@@ -51,5 +52,11 @@ export class AsideComponent implements OnInit{
   //*---------------------------------------------------------------------------
   toggleMenu(menu: string): void {
     this.menuStates[menu] = !this.menuStates[menu];
+  }
+
+
+  //? Logout function
+  logout(): void {
+    this.authService.logout();
   }
 }
