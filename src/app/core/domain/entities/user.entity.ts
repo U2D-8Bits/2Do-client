@@ -31,13 +31,16 @@ export class User {
 
   getImageUrl() {
     if (!this.str_user_profile_picture) {
-      return `${baseUrl}/upload/default-profile.png`;
+      console.log('No profile picture');
+      return `http://localhost:3000/uploads/default-profile.png`;
     } else if (this.str_user_profile_picture.includes('https')) {
       return this.str_user_profile_picture;
     } else if (this.str_user_profile_picture) {
-      return `${baseUrl}/upload/profile_pictures/${this.str_user_profile_picture}`;
+      console.log('Profile picture');
+      return `http://localhost:3000/uploads/profile_pictures/${this.str_user_profile_picture}`;
     }else{
-      return `${baseUrl}/upload/default-profile.png`;
+      console.log('No profile picture');
+      return `http://localhost:3000/uploads/default-profile.png`;
     }
   }
 }
