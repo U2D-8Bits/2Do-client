@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardLayoutComponent } from '../../presentation/layouts/dashboard-layout/dashboard-layout.component';
 import { DashboardRoutingModule } from '../routes/dashboard-routing.module';
 import { AsideComponent, NavbarComponent } from '../../presentation/components';
-import { DashboardComponent } from '../../presentation/pages';
+import { DashboardComponent, ProfilePageComponent } from '../../presentation/pages';
 
 
 
@@ -17,7 +17,8 @@ import { DashboardComponent } from '../../presentation/pages';
     NavbarComponent,
 
     //* Pages
-    DashboardComponent
+    DashboardComponent,
+    ProfilePageComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +31,8 @@ import { DashboardComponent } from '../../presentation/pages';
     NavbarComponent,
 
     //* Pages
-    DashboardComponent
+    DashboardComponent,
+    ProfilePageComponent
   ]
 })
 export class DashboardModule { }
