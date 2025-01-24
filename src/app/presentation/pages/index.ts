@@ -8,3 +8,4 @@ export {SignupPageComponent} from './signup-page/signup-page.component';
 
 
 export {DashboardComponent} from './dashboard/dashboard.component';
+export {ProfilePageComponent} from './profile-page/profile-page.component';
