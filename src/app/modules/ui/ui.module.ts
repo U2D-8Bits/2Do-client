@@ -5,7 +5,7 @@
 //? Imports
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { InputComponent, ButtonComponent, ToastComponent, ToastContainerComponent } from "../../presentation/ui";
+import { InputComponent, ButtonComponent, ToastComponent, ToastContainerComponent, DynamicDialogComponent } from "../../presentation/ui";
 import {  } from "../../presentation/ui/button/button.component";
 
 //? NgModules
@@ -15,7 +15,8 @@ import {  } from "../../presentation/ui/button/button.component";
     InputComponent,
     ButtonComponent,
     ToastComponent,
-    ToastContainerComponent
+    ToastContainerComponent,
+    DynamicDialogComponent,
 
   ],
   imports: [
@@ -25,7 +26,8 @@ import {  } from "../../presentation/ui/button/button.component";
     InputComponent,
     ButtonComponent,
     ToastComponent,
-    ToastContainerComponent
+    ToastContainerComponent,
+    DynamicDialogComponent,
   ]
 
 })
