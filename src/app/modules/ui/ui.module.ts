@@ -16,7 +16,6 @@ import {  } from "../../presentation/ui/button/button.component";
     ButtonComponent,
     ToastComponent,
     ToastContainerComponent,
-    DynamicDialogComponent,
 
   ],
   imports: [
@@ -27,7 +26,6 @@ import {  } from "../../presentation/ui/button/button.component";
     ButtonComponent,
     ToastComponent,
     ToastContainerComponent,
-    DynamicDialogComponent,
   ]
 
 })
