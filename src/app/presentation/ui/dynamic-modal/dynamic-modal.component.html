@@ -15,9 +15,24 @@
       </button>
     </div>
 
-    <!-- Content -->
+    <!-- Dynamic Content -->
     <div class="mt-4">
-      <p>{{ content }}</p>
+      <ng-container [ngSwitch]="content">
+        <!-- Formulario para actualizar el perfil -->
+        <ng-container *ngSwitchCase="'updateProfile'">
+          <app-update-profile-form></app-update-profile-form>
+        </ng-container>
+
+        <!-- Formulario para crear una tarea -->
+        <!-- <ng-container *ngSwitchCase="'createTask'">
+          <app-create-task-form></app-create-task-form>
+        </ng-container> -->
+
+        <!-- Default -->
+        <ng-container *ngSwitchDefault>
+          <p>No se ha proporcionado contenido.</p>
+        </ng-container>
+      </ng-container>
     </div>
 
     <!-- Footer -->

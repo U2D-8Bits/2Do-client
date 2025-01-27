@@ -60,7 +60,7 @@ export class ProfilePageComponent implements OnInit {
   showUpdateModal(): void {
     this.modalService.openModal(
       'Actualizar Perfil',
-      '¿Estás seguro que deseas actualizar tu perfil?',
+      'updateProfile',
     )
   }
 
