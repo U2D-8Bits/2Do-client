@@ -29,3 +29,6 @@ export * from './auth/login-response.interface';
 
 //? Toast Interface
 export * from './toast/toast.interface';
+
+//? Modal Interface
+export * from './modal/modal.interface';
