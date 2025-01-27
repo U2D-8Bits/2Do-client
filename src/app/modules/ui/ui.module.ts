@@ -6,6 +6,7 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { InputComponent, ButtonComponent, ToastComponent, ToastContainerComponent, DynamicModalComponent } from "../../presentation/ui";
+import { UpdateProfileFormComponent } from "../../presentation/components";
 
 //? NgModules
 @NgModule({
@@ -17,6 +18,8 @@ import { InputComponent, ButtonComponent, ToastComponent, ToastContainerComponen
     ToastContainerComponent,
     DynamicModalComponent,
 
+    UpdateProfileFormComponent,
+
   ],
   imports: [
     CommonModule,
@@ -27,6 +30,8 @@ import { InputComponent, ButtonComponent, ToastComponent, ToastContainerComponen
     ToastComponent,
     ToastContainerComponent,
     DynamicModalComponent,
+
+    UpdateProfileFormComponent,
   ]
 
 })

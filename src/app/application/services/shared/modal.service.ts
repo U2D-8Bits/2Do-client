@@ -1,7 +1,7 @@
 //*******************************************************/
 //* Imports
 //*******************************************************/
-import { Injectable } from '@angular/core';
+import { Injectable, TemplateRef } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ModalInterface } from '../../../core/domain/interfaces';
 
