@@ -1,0 +1,38 @@
+<div
+  *ngIf="isVisible"
+  class="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+>
+  <div class="bg-white w-11/12 md:w-2/3 lg:w-1/2 rounded-lg shadow-lg p-6 relative">
+    <!-- Header -->
+    <div class="flex justify-between items-center border-b pb-3">
+      <h2 class="text-lg font-semibold">{{ title }}</h2>
+      <button
+        class="text-gray-400 hover:text-gray-600"
+        (click)="closeModal()"
+        aria-label="Close"
+      >
+        ✖
+      </button>
+    </div>
+
+    <!-- Content -->
+    <div class="mt-4">
+      <p>{{ content }}</p>
+    </div>
+
+    <!-- Footer -->
+    <div class="mt-6 flex justify-end gap-4">
+      <button
+        class="bg-gray-200 px-4 py-2 rounded-md hover:bg-gray-300"
+        (click)="closeModal()"
+      >
+        Cancelar
+      </button>
+      <button
+        class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+      >
+        Confirmar
+      </button>
+    </div>
+  </div>
+</div>

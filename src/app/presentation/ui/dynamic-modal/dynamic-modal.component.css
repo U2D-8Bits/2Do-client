@@ -1,0 +1,6 @@
+/* Responsivo */
+@media (min-width: 768px) {
+  .modal {
+    max-width: 600px;
+  }
+}

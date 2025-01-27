@@ -4,6 +4,7 @@ import { DashboardLayoutComponent } from '../../presentation/layouts/dashboard-l
 import { DashboardRoutingModule } from '../routes/dashboard-routing.module';
 import { AsideComponent, NavbarComponent } from '../../presentation/components';
 import { DashboardComponent, ProfilePageComponent } from '../../presentation/pages';
+import { UiModule } from '../ui/ui.module';
 
 
 
@@ -22,7 +23,8 @@ import { DashboardComponent, ProfilePageComponent } from '../../presentation/pag
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    UiModule,
   ],
   exports: [
 
