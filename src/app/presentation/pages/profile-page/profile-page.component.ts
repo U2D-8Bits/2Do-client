@@ -4,6 +4,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StorageService, UserService } from '../../../application/services';
 import { UserInterface } from '../../../core/domain/interfaces';
+import { ModalService } from '../../../application/services/shared/modal.service';
 
 //***********************************************************************/
 //* @Component
@@ -25,6 +26,7 @@ export class ProfilePageComponent implements OnInit {
   constructor(
     private userService: UserService,
     private storageService: StorageService,
+    private modalService: ModalService,
   ) { }
 
   //***********************************************************************/
@@ -53,5 +55,13 @@ export class ProfilePageComponent implements OnInit {
   //***********************************************************************/
   //* Methods
   //***********************************************************************/
+
+  //? Show modal
+  showUpdateModal(): void {
+    this.modalService.openModal(
+      'Actualizar Perfil',
+      '¿Estás seguro que deseas actualizar tu perfil?',
+    )
+  }
 
 }
