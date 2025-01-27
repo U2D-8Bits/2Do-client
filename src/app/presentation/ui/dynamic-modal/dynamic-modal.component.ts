@@ -1,7 +1,7 @@
 //*******************************************************/
 //* Imports
 //*******************************************************/
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ModalService } from '../../../application/services/shared/modal.service';
 
 
@@ -31,7 +31,7 @@ export class DynamicModalComponent implements OnInit {
   //*********************************************/
   isVisible: boolean = false;
   title: string = '';
-  content: string = '';
+  content: string | TemplateRef<any> = '';
 
   //*********************************************/
   //* Lifecycle
