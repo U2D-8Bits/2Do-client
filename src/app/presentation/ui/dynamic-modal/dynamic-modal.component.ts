@@ -31,7 +31,7 @@ export class DynamicModalComponent implements OnInit {
   //*********************************************/
   isVisible: boolean = false;
   title: string = '';
-  content: string | TemplateRef<any> = '';
+  content: string = '';
 
   //*********************************************/
   //* Lifecycle
