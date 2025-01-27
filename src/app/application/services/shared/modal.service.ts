@@ -28,7 +28,7 @@ export class ModalService {
   modalState$ = this.modalStateSubject.asObservable();
 
   //? Show Modal
-  openModal(title: string, content: string | TemplateRef<any>): void {
+  openModal(title: string, content: string): void {
       this.modalStateSubject.next({
         isVisible: true,
         title,
