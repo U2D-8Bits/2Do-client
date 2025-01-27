@@ -1,7 +1,7 @@
 //*******************************************************/
 //* Imports
 //*******************************************************/
-import { Injectable } from '@angular/core';
+import { Injectable, TemplateRef } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ModalInterface } from '../../../core/domain/interfaces';
 
@@ -28,7 +28,7 @@ export class ModalService {
   modalState$ = this.modalStateSubject.asObservable();
 
   //? Show Modal
-  openModal(title: string, content: string): void {
+  openModal(title: string, content: string | TemplateRef<any>): void {
       this.modalStateSubject.next({
         isVisible: true,
         title,
